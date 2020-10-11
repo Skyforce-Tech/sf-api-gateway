@@ -6,6 +6,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 
+import com.skyforce.application.utility.GatewayUtility;
+
 import brave.sampler.Sampler;
 
 @SpringBootApplication
@@ -19,5 +21,10 @@ public class ZuulApiGatewayApplication {
 	@Bean
 	public Sampler defaultSampler()  {  
 		return Sampler.ALWAYS_SAMPLE;
+	}
+	
+	@Bean
+	public GatewayUtility gateWayUtility() {
+		return new GatewayUtility();
 	}
 }
